@@ -1,21 +1,31 @@
 #include <stdio.h>
-#include "linked_list.h"
+#include "stack.h"
 
-int main() {
-    Node* head = NULL;
+int main()
+{
+    Node* stack = NULL;
 
-    append(&head, 10);
-    append(&head, 20);
-    append(&head, 30);
+    push(&stack, 10);
+    push(&stack, 20);
+    push(&stack, 30);
 
-    printf("Before delete:\n");
-    printList(head);
+    printf("Stack after pushes:\n");
+    printStack(stack);
 
-    deleteNode(&head, 20);
+    printf("Top element: %d\n", peek(stack));
+    printf("Popped: %d\n", pop(&stack));
 
-    printf("After delete:\n");
-    printList(head);
+    printf("Stack after pop:\n");
+    printStack(stack);
 
+    if (isEmpty(stack))
+    {
+        printf("Stack is empty.\n");
+    }
+    else
+    {
+        printf("Stack is not empty.\n");
+    }
 
     return 0;
 }
