@@ -1,30 +1,32 @@
 #include <stdio.h>
-#include "stack.h"
+#include "queue.h"
 
 int main()
 {
-    Node* stack = NULL;
+    Queue queue;
+    queue.front = NULL;
+    queue.rear = NULL;
 
-    push(&stack, 10);
-    push(&stack, 20);
-    push(&stack, 30);
+    enqueue(&queue, 10);
+    enqueue(&queue, 20);
+    enqueue(&queue, 30);
 
-    printf("Stack after pushes:\n");
-    printStack(stack);
+    printf("Queue after enqueue:\n");
+    printQueue(&queue);
 
-    printf("Top element: %d\n", peek(stack));
-    printf("Popped: %d\n", pop(&stack));
+    printf("Front element: %d\n", peekQueue(&queue));
+    printf("Dequeued: %d\n", dequeue(&queue));
 
-    printf("Stack after pop:\n");
-    printStack(stack);
+    printf("Queue after dequeue:\n");
+    printQueue(&queue);
 
-    if (isEmpty(stack))
+    if (isQueueEmpty(&queue))
     {
-        printf("Stack is empty.\n");
+        printf("Queue is empty.\n");
     }
     else
     {
-        printf("Stack is not empty.\n");
+        printf("Queue is not empty.\n");
     }
 
     return 0;
